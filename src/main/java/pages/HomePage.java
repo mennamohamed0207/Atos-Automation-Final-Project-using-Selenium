@@ -8,6 +8,7 @@ import utiles.commonHelper.ElementHelper;
 public class HomePage {
     WebDriver driver;
     By SignInUp = By.linkText("Signup / Login");
+    By productsNavBar=By.xpath("//a[@href='/products']");
 
 public HomePage() {
         this.driver = DriverManager.getDriver();
@@ -16,5 +17,8 @@ public HomePage() {
 
     public void clickOnSignInUpLink() {
         ElementHelper.click(driver,SignInUp);
+    }
+    public void clickOnProducts(){
+    ElementHelper.click(driver,productsNavBar);
     }
 }

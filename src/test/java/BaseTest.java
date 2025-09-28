@@ -13,7 +13,7 @@ public class BaseTest {
     }
 
     @AfterTest
-    public void closeDriver(){
-       DriverManager.closeDriver();
+    public void closeDriver() {
+//        DriverManager.closeDriver();
     }
 }

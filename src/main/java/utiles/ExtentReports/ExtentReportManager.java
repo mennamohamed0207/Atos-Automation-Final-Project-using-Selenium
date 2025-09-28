@@ -29,7 +29,7 @@ public  final class ExtentReportManager {
 
             // System info
             extent.setSystemInfo("Environment", "QA");
-            extent.setSystemInfo("Tester", "Rofida");
+            extent.setSystemInfo("Tester", "Menna Abdelbaset");
             extent.setSystemInfo("OS", System.getProperty("os.name"));
             extent.setSystemInfo("Java Version", System.getProperty("java.version"));
         }

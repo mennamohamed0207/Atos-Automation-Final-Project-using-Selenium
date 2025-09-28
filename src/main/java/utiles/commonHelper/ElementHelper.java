@@ -8,7 +8,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class ElementHelper {
-    private static final int waitingTime = 30;
+    private static final int waitingTime = 120;
 
     /**
      * -----------------------------

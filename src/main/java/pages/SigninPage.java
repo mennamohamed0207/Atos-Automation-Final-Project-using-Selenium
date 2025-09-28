@@ -24,6 +24,13 @@ public class SigninPage {
     public SigninPage enterLoginPassword(){
         ElementHelper.sendText(driver,LoginPassword,global.getPassword());
         return this ;
+    } public  SigninPage EnterLoginFromFile(String email){
+        ElementHelper.sendText(driver,LoginEmail,email);
+        return this ;
+    }
+    public SigninPage enterLoginPasswordFromFile(String password){
+        ElementHelper.sendText(driver,LoginPassword,password);
+        return this ;
     }
     public SigninPage  clickOnLoginBtn() {
         ElementHelper.click(driver,LoginButton);

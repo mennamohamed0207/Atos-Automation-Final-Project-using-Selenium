@@ -47,11 +47,13 @@ public class AssertionHelper {
         Assert.assertEquals(actual, expected,
                 "❌ Expected: [" + expected + "] but found: [" + actual + "]");
     }
+
     // Assert equality for numbers
     public static void assertEqual(Number actual, Number expected) {
         Assert.assertEquals(actual, expected,
                 "❌ Expected: [" + expected + "] but found: [" + actual + "]");
     }
+
     // Assert text of a web element matches expected value
     public static void assertElementText(WebDriver driver, By locator, String expectedText) {
         String actualText = ElementHelper.waitForVisibility(driver, locator).getText();
