@@ -9,6 +9,7 @@ public class HomePage {
     WebDriver driver;
     By SignInUp = By.linkText("Signup / Login");
     By productsNavBar=By.xpath("//a[@href='/products']");
+    By contactUsNavBar=By.xpath("//a[@href='/contact_us']");
 
 public HomePage() {
         this.driver = DriverManager.getDriver();
@@ -20,5 +21,9 @@ public HomePage() {
     }
     public void clickOnProducts(){
     ElementHelper.click(driver,productsNavBar);
+    }
+    public void clickOnContactUs()
+    {
+        ElementHelper.click(driver,contactUsNavBar);
     }
 }

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "menna",
+    "email": "menna140@gmail.com",
+    "subject": "query",
+    "message": "website is not working as supposed",
+    "filePath": "E:\\AtosAutomationProject\\Atos_intake4\\src\\test\\resources\\SignupTestData.json"
+
+  }
+]

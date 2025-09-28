@@ -66,6 +66,7 @@ public class ElementHelper {
                 By.xpath("//*[text()='" + text + "']")));
 
     }
+
     public static WebElement findElementByValue(String value, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitingTime));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -87,7 +88,7 @@ public class ElementHelper {
         webElement.click();
     }
 
-    public static void sendText( WebDriver driver, By locator,String text) {
+    public static void sendText(WebDriver driver, By locator, String text) {
         WebElement element = waitForVisibility(driver, locator);
         element.clear();
         element.sendKeys(text);
@@ -101,8 +102,10 @@ public class ElementHelper {
         return waitForVisibility(driver, locator).getText();
     }
 
-    public static  String getCurrentUrl(WebDriver driver){
-        return driver.getCurrentUrl();}
+    public static String getCurrentUrl(WebDriver driver) {
+        return driver.getCurrentUrl();
+    }
+
     public static List<WebElement> getElements(WebDriver driver, By locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitingTime));
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
@@ -131,7 +134,7 @@ public class ElementHelper {
      * -----------------------------
      **/
 
-    public static void selectFromDropDownByText( WebDriver driver, By locator ,String text) {
+    public static void selectFromDropDownByText(WebDriver driver, By locator, String text) {
         Select select = new Select(waitForClickable(driver, locator));
         select.selectByVisibleText(text);
     }
@@ -176,5 +179,13 @@ public class ElementHelper {
         WebElement element = waitForVisibility(driver, locator);
         actions.moveToElement(element).perform();
     }
+
+    public static Alert waitOnAlertAppearance(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitingTime));
+
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        return alert;
+
     }
+}
 

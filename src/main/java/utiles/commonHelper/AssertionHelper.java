@@ -1,9 +1,14 @@
 package utiles.commonHelper;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class AssertionHelper {
     // Assert element is present and displayed
@@ -15,6 +20,7 @@ public class AssertionHelper {
             Assert.fail("❌ Element not found: " + locator);
         }
     }
+
     // Assert current URL matches expected URL
     public static void assertUrl(WebDriver driver, String expectedUrl) {
         String actualUrl = ElementHelper.getCurrentUrl(driver);
@@ -60,4 +66,23 @@ public class AssertionHelper {
         Assert.assertEquals(actualText.trim(), expectedText.trim(),
                 "❌ Text mismatch! Expected: [" + expectedText + "] but found: [" + actualText + "]");
     }
+
+    public static void assertPopUpAppearance(WebDriver driver) {
+        try {
+            // Check if alert is present
+            Alert alert = ElementHelper.waitOnAlertAppearance(driver);
+            if (alert != null) {
+                System.out.println("Assertion Passed: Popup is present");
+            } else {
+                throw new AssertionError("❌ No popup appeared");
+            }
+            alert.accept();
+
+        } catch (Exception e) {
+            System.out.println("❌ No alert appeared within timeout");
+        }
+
+    }
+
+
 }
