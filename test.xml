@@ -19,15 +19,21 @@
                     </include>
                 </methods>
             </class>
-<!--            <class name="ProductsTest">-->
+            <!--            <class name="ProductsTest">-->
+            <!--                <methods>-->
+            <!--                    <include name="searchProducts">-->
+            <!--                    </include>-->
+            <!--                </methods>-->
+            <!--            </class>-->
+<!--            <class name="ContactUsTest">-->
 <!--                <methods>-->
-<!--                    <include name="searchProducts">-->
+<!--                    <include name="contactUsFunction">-->
 <!--                    </include>-->
 <!--                </methods>-->
 <!--            </class>-->
-            <class name="ContactUsTest">
+            <class name="HomeTest">
                 <methods>
-                    <include name="contactUsFunction">
+                    <include name="logOut">
                     </include>
                 </methods>
             </class>

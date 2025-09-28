@@ -10,6 +10,7 @@ public final class LoadProperties {
     public static final String URL = environmentSetup.getProperty("URL");
     public static final String BROWSER = environmentSetup.getProperty("Browser");
     public static final String PRODUCTDETAILSURL=environmentSetup.getProperty("ProductDetailsPage");
+    public static final String loginURL=environmentSetup.getProperty("loginURL");
     private LoadProperties() {
         // Prevent instantiation
     }

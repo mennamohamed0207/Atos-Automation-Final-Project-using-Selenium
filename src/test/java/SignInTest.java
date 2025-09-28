@@ -3,6 +3,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.SigninPage;
 import utiles.ExtentReports.ExtentReportListener;
+import utiles.commonHelper.ElementHelper;
 import utiles.datareaders.DataProviderUtils;
 
 import java.io.IOException;
@@ -32,5 +33,6 @@ public class SignInTest  extends  BaseTest{
     {
         Home.clickOnSignInUpLink();
         SigninPage.EnterLoginFromFile(email).enterLoginPasswordFromFile(password).clickOnLoginBtn();
+        SigninPage.assertURLRedirection();
     }
 }
