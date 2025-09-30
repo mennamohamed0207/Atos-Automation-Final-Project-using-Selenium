@@ -8,7 +8,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class ElementHelper {
-    private static final int waitingTime = 120;
+    private static final int waitingTime = 60;
 
     /**
      * -----------------------------
@@ -187,5 +187,10 @@ public class ElementHelper {
         return alert;
 
     }
+    public static void backFromPage(WebDriver driver) {
+       driver.navigate().back();
+
+    }
+
 }
 

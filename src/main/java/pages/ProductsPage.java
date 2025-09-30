@@ -17,8 +17,12 @@ public class ProductsPage {
     By searchBar = By.xpath("//input[@id='search_product']");
     By searchLens = By.xpath("//button[@id='submit_search']");
     By searchResultItem = By.xpath("//a[@href='/product_details/28']");
+    By searchResultItem2 = By.xpath("//a[@href=\"/product_details/29\"]");
     static String ProductDetailsURL = LoadProperties.PRODUCTDETAILSURL;
-
+    By quantityField = By.xpath("//input[@id=\"quantity\"]");
+    By popUpMessage = By.className("modal-content");
+    By addToCartButton = By.cssSelector(".btn.btn-default.cart");
+    By contiuneShoppingButton = By.xpath("//button[@data-dismiss=\"modal\"]");
     public ProductsPage() {
         this.driver = DriverManager.getDriver();
         global = Global.getInstance();
@@ -31,12 +35,18 @@ public class ProductsPage {
     }
 
     public ProductsPage clickOnSearchLens() {
+        ElementHelper.scrollToElement(driver,searchLens);
         ElementHelper.click(driver, searchLens);
         return this;
     }
 
     public ProductsPage clickOnFirstSearchResult() {
         ElementHelper.click(driver, searchResultItem);
+        return this;
+    }
+
+    public ProductsPage clickOnSecondSearchResult() {
+        ElementHelper.click(driver, searchResultItem2);
         return this;
     }
 
@@ -47,7 +57,7 @@ public class ProductsPage {
     }
 
     public void assertOnProducts() {
-        AssertionHelper.assertElementPresent(driver, searchResultItem);
+        AssertionHelper.assertElementPresent(driver, firstProduct);
     }
 
     public void checkOnRelevantProducts(String searchQuery) {
@@ -57,13 +67,33 @@ public class ProductsPage {
     }
 
     public void checkOnProductDetails() {
-        WebElement productName = ElementHelper.findElementByTextContains("Pure Cotton V-Neck T-Shirt", driver);
-        WebElement productCategory = ElementHelper.findElementByTextContains("Category: Men > Tshirts", driver);
+        WebElement productName = ElementHelper.findElementByTextContains("Pure", driver);
+        WebElement productCategory = ElementHelper.findElementByTextContains("Category: Men", driver);
         WebElement productPrice = ElementHelper.findElementByTextContains("Rs. 1299", driver);
-        AssertionHelper.assertNotNull(productName,"Product name doesn't exist");
-        AssertionHelper.assertNotNull(productCategory,"Product Category doesn't exist");
-        AssertionHelper.assertNotNull(productPrice,"Product Price doesn't exist");
+        AssertionHelper.assertNotNull(productName, "Product name doesn't exist");
+        AssertionHelper.assertNotNull(productCategory, "Product Category doesn't exist");
+        AssertionHelper.assertNotNull(productPrice, "Product Price doesn't exist");
     }
 
+    public ProductsPage addProductToCart(int quantity) {
+        ElementHelper.sendText(driver, quantityField, Integer.toString(quantity));
+        ElementHelper.click(driver, addToCartButton);
+        return this;
+    }
+
+    public ProductsPage assertOnAddingToCart() {
+        AssertionHelper.assertElementPresent(driver, popUpMessage);
+        return this;
+    }
+
+    public ProductsPage backButton() {
+        ElementHelper.backFromPage(driver);
+        return this;
+    }
+    public ProductsPage clickOnContiuneShopping()
+    {
+     ElementHelper.click(driver,contiuneShoppingButton);
+     return this;
+    }
 }
 

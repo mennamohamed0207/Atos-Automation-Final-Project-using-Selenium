@@ -38,6 +38,15 @@ public class ProductsTest extends BaseTest {
         products.clickOnFirstSearchResult();
         products.assertOnProductDetails();
         products.checkOnProductDetails();
+        products.addProductToCart(2);
+        products.assertOnAddingToCart();
+        products.backButton().clickOnSecondSearchResult().addProductToCart(1).assertOnAddingToCart().clickOnContiuneShopping();
+        home.clickOnCartNavBar();
+
+
+
+
     }
+
 
 }

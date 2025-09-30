@@ -1,16 +1,6 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Test SignInUp ">
-    <!--<test name="SignUp">-->
-    <!--    <classes>-->
-    <!--        <class name="SignUpTest">-->
-    <!--            <methods>-->
-    <!--                <include name="signupHappyPathFlow">-->
-    <!--                </include>-->
-    <!--            </methods>-->
-    <!--        </class>-->
-    <!--    </classes>-->
-    <!--</test>-->
     <test name="Signin">
         <classes>
             <class name="SignInTest">
@@ -19,24 +9,30 @@
                     </include>
                 </methods>
             </class>
-            <!--            <class name="ProductsTest">-->
-            <!--                <methods>-->
-            <!--                    <include name="searchProducts">-->
-            <!--                    </include>-->
-            <!--                </methods>-->
-            <!--            </class>-->
-<!--            <class name="ContactUsTest">-->
-<!--                <methods>-->
-<!--                    <include name="contactUsFunction">-->
-<!--                    </include>-->
-<!--                </methods>-->
-<!--            </class>-->
-            <class name="HomeTest">
-                <methods>
-                    <include name="logOut">
-                    </include>
-                </methods>
-            </class>
+            <class name="ProductsTest">
+                            <methods>
+                                <include name="searchProducts">
+                                </include>
+                            </methods>
+                        </class>
+                        <class name="CartTest">
+                            <methods>
+                                <include name="checkoutAndProceed">
+                                </include>
+                            </methods>
+                        </class>
+                        <class name="ContactUsTest">
+                            <methods>
+                                <include name="contactUsFunction">
+                                </include>
+                            </methods>
+                        </class>
+                        <class name="HomeTest">
+                            <methods>
+                                <include name="logOut">
+                                </include>
+                            </methods>
+                        </class>
         </classes>
     </test>
 </suite>

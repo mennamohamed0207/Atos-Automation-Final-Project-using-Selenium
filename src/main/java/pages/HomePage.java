@@ -10,31 +10,38 @@ import utiles.config.LoadProperties;
 public class HomePage {
     WebDriver driver;
     By SignInUp = By.linkText("Signup / Login");
-    By productsNavBar=By.xpath("//a[@href='/products']");
-    By contactUsNavBar=By.xpath("//a[@href='/contact_us']");
-    By logOutNavBar=By.xpath("//a[@href=\"/logout\"]");
-     final static String loginURL= LoadProperties.loginURL;
-public HomePage() {
+    By productsNavBar = By.xpath("//a[@href='/products']");
+    By contactUsNavBar = By.xpath("//a[@href='/contact_us']");
+    By logOutNavBar = By.xpath("//a[@href=\"/logout\"]");
+    By cartNavBar = By.xpath("//a[@href=\"/view_cart\"]");
+    final static String loginURL = LoadProperties.loginURL;
+
+    public HomePage() {
         this.driver = DriverManager.getDriver();
 
     }
 
     public void clickOnSignInUpLink() {
-        ElementHelper.click(driver,SignInUp);
+        ElementHelper.click(driver, SignInUp);
     }
-    public void clickOnProducts(){
-    ElementHelper.click(driver,productsNavBar);
+
+    public void clickOnProducts() {
+        ElementHelper.click(driver, productsNavBar);
     }
-    public void clickOnContactUs()
-    {
-        ElementHelper.click(driver,contactUsNavBar);
+
+    public void clickOnContactUs() {
+        ElementHelper.click(driver, contactUsNavBar);
     }
-    public  void clickOnLogOut()
-    {
-        ElementHelper.click(driver,logOutNavBar);
+
+    public void clickOnLogOut() {
+        ElementHelper.click(driver, logOutNavBar);
     }
-    public void assertRedirection()
-    {
-        AssertionHelper.assertUrl(driver,loginURL);
+
+    public void assertRedirection() {
+        AssertionHelper.assertUrl(driver, loginURL);
+    }
+
+    public void clickOnCartNavBar() {
+        ElementHelper.click(driver, cartNavBar);
     }
 }
