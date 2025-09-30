@@ -17,7 +17,7 @@ public class CartPage {
     By cardCVC = By.xpath("//input[@data-qa=\"cvc\"]");
     By cardMonth = By.xpath("//input[@data-qa=\"expiry-month\"]");
     By cardYear = By.xpath("//input[@data-qa=\"expiry-year\"]");
-    By confirmButton=By.xpath("//button[@data-qa=\"pay-button\"]");
+    By confirmButton = By.xpath("//button[@data-qa=\"pay-button\"]");
     static final String checkoutURL = LoadProperties.checkoutURL;
     static final String paymentURL = LoadProperties.paymentURL;
 
@@ -69,18 +69,20 @@ public class CartPage {
 
     public CartPage enterCardExpireMonth(String month) {
         ElementHelper.sendText(driver, cardMonth, month);
+        ElementHelper.scrollToElement(driver, cardMonth);
         return this;
 
     }
-    public CartPage clickOnConfirmButton()
-    {
-        ElementHelper.click(driver,confirmButton);
+
+    public CartPage clickOnConfirmButton() {
+
+        ElementHelper.click(driver, confirmButton);
         return this;
     }
-    public CartPage assertOnSuccessPayment()
-    {
-        WebElement successMessage=ElementHelper.findElementByTextContains("Congratulations",driver);
-        AssertionHelper.assertNotNull(successMessage,"No success message");
+
+    public CartPage assertOnSuccessPayment() {
+        WebElement successMessage = ElementHelper.findElementByTextContains("Congratulations", driver);
+        AssertionHelper.assertNotNull(successMessage, "No success message");
         return this;
     }
 }
